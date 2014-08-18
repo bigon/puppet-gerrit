@@ -30,6 +30,14 @@ class gerrit::params{
       $mysql_java_connector = "/usr/share/java/mysql-connector-java.jar"
       $mysql_java_package   = "libmysql-java"
     }
+    /(?i:sles)/: {
+      $git_package          = "git"
+      $gitweb_cgi_path      = "/usr/share/gitweb/gitweb.cgi"
+      $gitweb_package       = "git-web"
+      $java_package         = "java-1_7_0-ibm"
+      $mysql_java_connector = "/usr/share/java/mysql-connector-java.jar"
+      $mysql_java_package   = "mysql-connector-java"
+    }
     default: {
       fail "Operatingsystem ${::operatingsystem} is not supported."
     }
