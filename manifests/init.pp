@@ -223,6 +223,7 @@ class gerrit (
       $user:
         managehome => true,
         home       => $target,
+        system     => true,
     } -> Exec ['install_gerrit']
   }
 
