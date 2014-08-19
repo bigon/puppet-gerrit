@@ -256,7 +256,7 @@ class gerrit (
 
   exec {
     'install_gerrit':
-      command => "java -jar ${source} init -d ${target}",
+      command => "java -jar ${source} init --batch -d ${target}",
       creates => "${target}/bin/gerrit.sh",
       user    => $user,
       path    => $::path,
@@ -264,7 +264,7 @@ class gerrit (
 
   exec {
     'reload_gerrit':
-      command     => "java -jar ${target}/bin/gerrit.war init -d ${target}",
+      command     => "java -jar ${target}/bin/gerrit.war init --batch -d ${target}",
       refreshonly => true,
       user        => $user,
       path        => $::path,
