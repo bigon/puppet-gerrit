@@ -271,6 +271,15 @@ class gerrit (
       notify      => Service['gerrit'],
   }
 
+  if ($::operatingsystem == 'SLES') {
+    file {
+      '/etc/default/gerritcodereview':
+        ensure  => present,
+        content => "START_STOP_DAEMON=0\n",
+        before  => Service ['gerrit'],
+    }
+  }
+
   if $manage_service {
     service {
       'gerrit':
